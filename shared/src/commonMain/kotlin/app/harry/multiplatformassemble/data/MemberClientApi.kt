@@ -1,20 +1,19 @@
 package app.harry.multiplatformassemble.data
 
-import app.harry.multiplatformassemble.model.Member
+import app.harry.multiplatformassemble.domain.ApiResponse
+import app.harry.multiplatformassemble.domain.Member
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 
 const val HOST_API_URL = "127.0.0.1"
 
-const val CLIENT_API_URL = "https://75d619d18119.ngrok.io"
+const val CLIENT_API_URL = "https://74a0ce588dfd.ngrok.io"
 
 class MemberClientApi(
     private val client : HttpClient
 ) {
 
-    suspend fun getAndroidMembers() = client.get<List<Member>>("$CLIENT_API_URL/androids") {
-        contentType(ContentType.Application.Json)
-    }
+    suspend fun getAndroidMembers() = client.get<ApiResponse<List<Member>>>("$CLIENT_API_URL/androids")
 
 }

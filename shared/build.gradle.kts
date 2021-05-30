@@ -27,13 +27,9 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 kotlin {
     android()
     jvm()
-    val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
-        if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
-            ::iosArm64
-        else
-            ::iosX64
 
-    iosTarget("ios") {}
+    iosArm64("ios")
+//    iosX64("ios")
 
     cocoapods {
         summary = "Some description for the Shared Module"
@@ -49,6 +45,7 @@ kotlin {
                 api(KotlinX.coroutines.core)
                 api(KotlinX.serialization.core)
                 api(Ktor.client.core)
+                api(Ktor.client.json)
                 api(Ktor.client.logging)
                 api(Ktor.client.cio)
                 api(Ktor.client.serialization)
@@ -80,14 +77,12 @@ kotlin {
                 api(Google.android.material)
             }
         }
-        val iosMain by getting {
-            dependencies {
-            }
-        }
+        val iosMain by getting
         val jvmMain by getting {
             dependencies {
                 api(Ktor.server.core)
                 api(Ktor.server.netty)
+                api(Utils.ktorSerialization)
                 api(Koin.Ktor.ktor)
             }
         }
@@ -117,3 +112,17 @@ android {
         targetSdkVersion(30)
     }
 }
+
+val packForXcode by tasks.creating(Sync::class) {
+    group = "build"
+    val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
+    val targetName = "ios"
+    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
+    inputs.property("mode", mode)
+    dependsOn(framework.linkTask)
+    val targetDir = File(buildDir, "xcode-frameworks")
+    from({ framework.outputDirectory })
+    into(targetDir)
+}
+
+tasks.getByName("build").dependsOn(packForXcode)

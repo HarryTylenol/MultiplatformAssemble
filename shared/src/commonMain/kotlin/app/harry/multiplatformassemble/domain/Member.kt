@@ -1,4 +1,4 @@
-package app.harry.multiplatformassemble.model
+package app.harry.multiplatformassemble.domain
 
 import kotlinx.serialization.Serializable
 

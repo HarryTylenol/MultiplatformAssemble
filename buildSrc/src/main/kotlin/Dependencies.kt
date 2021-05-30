@@ -59,4 +59,6 @@ object Utils {
 
     const val analyticsKtx = "com.google.firebase:firebase-analytics-ktx"
 
+    const val ktorSerialization = "io.ktor:ktor-serialization:_"
+
 }

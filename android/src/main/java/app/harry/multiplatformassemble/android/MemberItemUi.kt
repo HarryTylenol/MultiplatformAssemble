@@ -6,7 +6,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import app.harry.multiplatformassemble.model.Member
+import app.harry.multiplatformassemble.domain.Member
 
 @Composable
 fun MemberItemUi(member: Member) {
