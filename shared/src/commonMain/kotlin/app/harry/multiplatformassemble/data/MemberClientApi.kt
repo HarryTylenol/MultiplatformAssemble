@@ -3,6 +3,7 @@ package app.harry.multiplatformassemble.data
 import app.harry.multiplatformassemble.model.Member
 import io.ktor.client.*
 import io.ktor.client.request.*
+import io.ktor.http.*
 
 const val HOST_API_URL = "127.0.0.1"
 
@@ -12,6 +13,8 @@ class MemberClientApi(
     private val client : HttpClient
 ) {
 
-    suspend fun getAndroidMembers() = client.get<List<Member>>("$CLIENT_API_URL/androids")
+    suspend fun getAndroidMembers() = client.get<List<Member>>("$CLIENT_API_URL/androids") {
+        contentType(ContentType.Application.Json)
+    }
 
 }
