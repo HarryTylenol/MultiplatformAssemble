@@ -28,8 +28,8 @@ kotlin {
     android()
     jvm()
 
-    iosArm64("ios")
-//    iosX64("ios")
+//    iosArm64("ios")
+    iosX64("ios")
 
     cocoapods {
         summary = "Some description for the Shared Module"
@@ -77,7 +77,11 @@ kotlin {
                 api(Google.android.material)
             }
         }
-        val iosMain by getting
+        val iosMain by getting {
+            dependencies {
+                api(Ktor.client.darwin)
+            }
+        }
         val jvmMain by getting {
             dependencies {
                 api(Ktor.server.core)

@@ -14,10 +14,10 @@ struct MemberRow: View {
     var member : Member
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(member.name)
             Spacer()
-            Text(member.level)
+            Text(member.level).font(.subheadline).foregroundColor(.gray)
         }
     }
 }

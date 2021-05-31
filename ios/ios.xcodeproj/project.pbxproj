@@ -9,33 +9,15 @@
 /* Begin PBXBuildFile section */
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		4A3DB613266346BF00B5BB9B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3DB612266346BF00B5BB9B /* MainViewModel.swift */; };
-		4A3DB618266347B500B5BB9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3DB617266347B500B5BB9B /* AppDelegate.swift */; };
 		4A3DB61C2663637100B5BB9B /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3DB61B2663637100B5BB9B /* Koin.swift */; };
 		4A3DB620266365D100B5BB9B /* MemberRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3DB61F266365D100B5BB9B /* MemberRow.swift */; };
-		4AC7F6D62663A323005DECFB /* shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC7F6D22663A2B6005DECFB /* shared.framework */; };
-		4AC7F6D72663A323005DECFB /* shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC7F6D22663A2B6005DECFB /* shared.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6EF7851A0A873C8EF4B88DC2 /* Pods_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEDB7301AD1F13933AEA30F2 /* Pods_ios.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		4AC7F6D82663A323005DECFB /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4AC7F6D72663A323005DECFB /* shared.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		4A3DB612266346BF00B5BB9B /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		4A3DB617266347B500B5BB9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A3DB61B2663637100B5BB9B /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 		4A3DB61F266365D100B5BB9B /* MemberRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRow.swift; sourceTree = "<group>"; };
 		4A3DB621266378FF00B5BB9B /* shared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = shared.framework; path = ../shared/build/cocoapods/framework/shared.framework; sourceTree = "<group>"; };
@@ -53,7 +35,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC7F6D62663A323005DECFB /* shared.framework in Frameworks */,
 				6EF7851A0A873C8EF4B88DC2 /* Pods_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,7 +48,6 @@
 				7555FF82242A565900829871 /* ContentView.swift */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				4A3DB612266346BF00B5BB9B /* MainViewModel.swift */,
-				4A3DB617266347B500B5BB9B /* AppDelegate.swift */,
 				4A3DB61B2663637100B5BB9B /* Koin.swift */,
 				4A3DB61F266365D100B5BB9B /* MemberRow.swift */,
 			);
@@ -132,7 +112,6 @@
 				7555FF79242A565900829871 /* Resources */,
 				EF73918117D19775DA202771 /* Frameworks */,
 				4AC7F6D12663A16C005DECFB /* ShellScript */,
-				4AC7F6D82663A323005DECFB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,7 +216,6 @@
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				4A3DB61C2663637100B5BB9B /* Koin.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
-				4A3DB618266347B500B5BB9B /* AppDelegate.swift in Sources */,
 				4A3DB613266346BF00B5BB9B /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

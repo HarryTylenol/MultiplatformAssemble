@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     implementation(project(":shared"))
+    implementation(Google.accompanist.insets)
 }
 
 android {

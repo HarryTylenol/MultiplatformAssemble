@@ -14,7 +14,7 @@ class MainViewModel : ObservableObject {
     
     @Published var members = [Member]()
     
-    private var repository : MemberRepository = inject()
+    private var repository : MemberRepository = MemberRepositoryImp()
     
     init() {
         

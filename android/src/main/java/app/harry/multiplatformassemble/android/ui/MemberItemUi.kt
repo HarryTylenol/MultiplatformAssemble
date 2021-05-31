@@ -1,4 +1,4 @@
-package app.harry.multiplatformassemble.android
+package app.harry.multiplatformassemble.android.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -17,6 +17,6 @@ fun MemberItemUi(member: Member) {
     ) {
         Text(member.name, style = MaterialTheme.typography.subtitle1)
         Spacer(modifier = Modifier.height(10.dp))
-        Text(member.level, style = MaterialTheme.typography.subtitle2)
+        Text(member.level, style = MaterialTheme.typography.subtitle2, color = MaterialTheme.colors.onSurface.copy(alpha = 0.5f))
     }
 }

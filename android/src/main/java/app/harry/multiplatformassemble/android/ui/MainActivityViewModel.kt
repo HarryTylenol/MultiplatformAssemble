@@ -1,4 +1,4 @@
-package app.harry.multiplatformassemble.android
+package app.harry.multiplatformassemble.android.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

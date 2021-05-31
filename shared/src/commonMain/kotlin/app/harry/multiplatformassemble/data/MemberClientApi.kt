@@ -5,10 +5,11 @@ import app.harry.multiplatformassemble.domain.Member
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import org.koin.core.component.KoinComponent
 
 const val HOST_API_URL = "127.0.0.1"
 
-const val CLIENT_API_URL = "https://74a0ce588dfd.ngrok.io"
+const val CLIENT_API_URL = "https://22092fbbc480.ngrok.io"
 
 class MemberClientApi(
     private val client : HttpClient

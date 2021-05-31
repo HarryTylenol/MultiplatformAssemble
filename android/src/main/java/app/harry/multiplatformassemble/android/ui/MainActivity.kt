@@ -1,9 +1,9 @@
-package app.harry.multiplatformassemble.android
+package app.harry.multiplatformassemble.android.ui
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
+import app.harry.multiplatformassemble.android.ui.styles.AppTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -13,8 +13,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme {
-                MainUi(viewModel)
+            AppTheme {
+                MultiplatformAssembleApp(viewModel)
             }
         }
     }
