@@ -17,7 +17,6 @@ class MainViewModel : ObservableObject {
     private var repository : MemberRepository = MemberRepositoryImp()
     
     init() {
-        
         repository.getAndroidMembers { response, error in
             self.members = response?.data as! [Member]
         }

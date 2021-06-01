@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import de.fayard.refreshVersions.core.versionFor
 
 plugins {
     kotlin("multiplatform")
@@ -30,7 +31,6 @@ kotlin {
 
 //    iosArm64("ios")
     iosX64("ios")
-
     cocoapods {
         summary = "Some description for the Shared Module"
         homepage = "Link to the Shared Module homepage"
@@ -39,15 +39,23 @@ kotlin {
         podfile = project.file("../ios/Podfile")
     }
 
+    js(IR) {
+        binaries.executable()
+        browser {
+            commonWebpackConfig {
+                cssSupport.enabled = true
+            }
+        }
+    }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
                 api(KotlinX.coroutines.core)
-                api(KotlinX.serialization.core)
+                api(KotlinX.serialization.json)
                 api(Ktor.client.core)
                 api(Ktor.client.json)
                 api(Ktor.client.logging)
-                api(Ktor.client.cio)
                 api(Ktor.client.serialization)
                 api(Koin.core)
             }
@@ -75,6 +83,8 @@ kotlin {
                 api(AndroidX.lifecycle.viewModelCompose)
 
                 api(Google.android.material)
+
+                implementation(Ktor.client.cio)
             }
         }
         val iosMain by getting {
@@ -82,15 +92,21 @@ kotlin {
                 api(Ktor.client.darwin)
             }
         }
+        val jsMain by getting {
+            dependencies {
+                api("io.ktor:ktor-client-js:${versionFor(Ktor.client.core)}")
+            }
+        }
         val jvmMain by getting {
             dependencies {
                 api(Ktor.server.core)
                 api(Ktor.server.netty)
+                api(KotlinX.html.jvm)
                 api(Utils.ktorSerialization)
                 api(Koin.Ktor.ktor)
+                api(Ktor.client.cio)
             }
         }
-
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -105,6 +121,7 @@ kotlin {
         }
         val iosTest by getting
         val jvmTest by getting
+        val jsTest by getting
     }
 }
 

@@ -2,6 +2,7 @@ package app.harry.multiplatformassemble.di
 
 import app.harry.multiplatformassemble.data.MemberClientApi
 import io.ktor.client.*
+import io.ktor.client.engine.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.logging.*
@@ -15,7 +16,8 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
         modules(
             listOf(
                 module {
-                    single { MemberClientApi(createHttpClient()) }
+                    single { createHttpClient() }
+                    single { MemberClientApi(get()) }
                 }
             )
         )
@@ -23,7 +25,9 @@ fun initKoin(appDeclaration: KoinAppDeclaration = {}) =
 
 fun initKoin() = initKoin {}
 
-fun createHttpClient() = HttpClient {
+expect val engineFactory : HttpClientEngineFactory<*>
+
+fun createHttpClient() = HttpClient(engineFactory) {
     install(JsonFeature) {
         serializer = KotlinxSerializer(
             kotlinx.serialization.json.Json {

@@ -9,7 +9,7 @@ import org.koin.core.component.KoinComponent
 
 const val HOST_API_URL = "127.0.0.1"
 
-const val CLIENT_API_URL = "https://22092fbbc480.ngrok.io"
+const val CLIENT_API_URL = "https://8264ee4cbcae.ngrok.io"
 
 class MemberClientApi(
     private val client : HttpClient

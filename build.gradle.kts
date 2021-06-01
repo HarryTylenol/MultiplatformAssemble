@@ -1,7 +1,8 @@
 buildscript {
     repositories {
-        gradlePluginPortal()
         google()
+        jcenter()
+        gradlePluginPortal()
         mavenCentral()
     }
     dependencies {
@@ -13,10 +14,8 @@ buildscript {
 allprojects {
     repositories {
         google()
+        jcenter()
         mavenCentral()
+        maven("https://kotlin.bintray.com/kotlin-js-wrappers/")
     }
-}
-
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
 }
