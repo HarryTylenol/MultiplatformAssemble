@@ -15,7 +15,6 @@ class App : Application() {
         initKoin {
             modules(
                 module {
-                    single { createHttpClient() }
                     single<MemberRepository> { MemberRepositoryImp() }
                     viewModel { MainActivityViewModel(get()) }
                 }
